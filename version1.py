@@ -6,7 +6,7 @@ import numpy as np
 import random 
 
 n = 36 #No. of nodes 
-nIter = 400
+nIter = 200
 nEdges = 60
 threshold = 1800
 links = []

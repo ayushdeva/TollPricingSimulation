@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+    <edge from="1" id="1to2" to="2" />
+    <edge from="2" id="2to3" to="3" />
+    <edge from="3" id="3to4" to="4" />
+    <edge from="4" id="4to5" to="5" />
+    <edge from="5" id="5to6" to="6" />
+
+    <edge from="8" id="8to7" to="7" />
+    <edge from="9" id="9to8" to="8" />
+    <edge from="10" id="10to9" to="9" />
+    <edge from="11" id="11to10" to="10" />
+    <edge from="12" id="12to11" to="11" />
+
+    <edge from="13" id="13to14" to="14" />
+    <edge from="14" id="14to15" to="15" />
+    <edge from="15" id="15to16" to="16" />
+    <edge from="16" id="16to17" to="17" />
+    <edge from="17" id="17to18" to="18" />
+
+    <edge from="20" id="20to19" to="19" />
+    <edge from="21" id="21to20" to="20" />
+    <edge from="22" id="22to21" to="21" />
+    <edge from="23" id="23to22" to="22" />
+    <edge from="24" id="24to23" to="23" />
+
+    <edge from="25" id="25to26" to="26" />
+    <edge from="26" id="26to27" to="27" />
+    <edge from="27" id="27to28" to="28" numLanes="3"/>
+    <edge from="28" id="28to29" to="29" numLanes="3"/>
+    <edge from="29" id="29to30" to="30" />
+
+    <edge from="32" id="32to31" to="31" />
+    <edge from="33" id="33to32" to="32" />
+    <edge from="34" id="34to33" to="33" />
+    <edge from="35" id="35to34" to="34" />
+    <edge from="36" id="36to35" to="35" />
+
+    <edge from="7" id="7to1" to="1" />
+    <edge from="13" id="13to7" to="7" />
+    <edge from="19" id="19to13" to="13" />
+    <edge from="25" id="25to19" to="19" />
+    <edge from="31" id="31to25" to="25" />
+
+    <edge from="8" id="8to2" to="2" />
+    <edge from="14" id="14to8" to="8" />
+    <edge from="20" id="20to14" to="14" />
+    <edge from="26" id="26to20" to="20" />
+    <edge from="32" id="32to26" to="26" />
+
+    <edge from="3" id="3to9" to="9" />
+    <edge from="9" id="9to15" to="15" numLanes="3"/>
+    <edge from="15" id="15to21" to="21" numLanes="3"/>
+    <edge from="21" id="21to27" to="27" numLanes="3"/>
+    <edge from="27" id="27to33" to="33" />
+
+    <edge from="10" id="10to4" to="4" />
+    <edge from="16" id="16to10" to="10" />
+    <edge from="22" id="22to16" to="16" />
+    <edge from="28" id="28to22" to="22" />
+    <edge from="34" id="34to28" to="28" />
+
+    <edge from="5" id="5to11" to="11" />
+    <edge from="11" id="11to17" to="17" />
+    <edge from="17" id="17to23" to="23" />
+    <edge from="23" id="23to29" to="29" />
+    <edge from="29" id="29to35" to="35" />
+
+    <edge from="6" id="6to12" to="12" />
+    <edge from="12" id="12to18" to="18" />
+    <edge from="18" id="18to24" to="24" />
+    <edge from="24" id="24to30" to="30" />
+    <edge from="30" id="30to36" to="36" />
+</edges>

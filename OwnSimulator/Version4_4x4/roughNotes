@@ -1,0 +1,4 @@
+for the first paper,
+
+we can use UCB and Thompson Sampling instead of epsilon-greedy.
+also Clarke's payment scheme/ shapley value as the cost of toll for each new car.

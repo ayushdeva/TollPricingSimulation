@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+
+    <connection from="1to2" to="2to3"/>
+    <connection from="2to3" to="3to4"/>
+    <connection from="3to4" to="4to5"/>
+    <connection from="4to5" to="5to6"/>
+
+    <connection from="9to8" to="8to7"/>
+    <connection from="10to9" to="9to8"/>
+    <connection from="11to10" to="10to9"/>
+    <connection from="12to11" to="11to10"/>
+
+    <connection from="13to14" to="14to15"/>
+    <connection from="14to15" to="15to16"/>
+    <connection from="15to16" to="16to17"/>
+    <connection from="16to17" to="17to18"/>
+
+    <connection from="21to20" to="20to19"/>
+    <connection from="22to21" to="21to20"/>
+    <connection from="23to22" to="22to21"/>
+    <connection from="24to23" to="23to22"/>
+
+    <connection from="25to26" to="26to27"/>
+    <connection from="26to27" to="27to28"/>
+    <connection from="27to28" to="28to29"/>
+    <connection from="28to29" to="29to30"/>
+
+    <connection from="33to32" to="32to31"/>
+    <connection from="34to33" to="33to32"/>
+    <connection from="35to34" to="34to33"/>
+    <connection from="36to35" to="35to34"/>
+
+    <connection from="31to25" to="25to19"/>
+    <connection from="25to19" to="19to13"/>
+    <connection from="19to13" to="13to7"/>
+    <connection from="13to7" to="7to1"/>
+
+    <connection from="32to26" to="26to20"/>
+    <connection from="26to20" to="20to14"/>
+    <connection from="20to14" to="14to8"/>
+    <connection from="14to8" to="8to2"/>
+
+    <connection from="3to9" to="9to15"/>
+    <connection from="9to15" to="15to21"/>
+    <connection from="15to21" to="21to27"/>
+    <connection from="21to27" to="27to33"/>
+
+    <connection from="34to28" to="28to22"/>
+    <connection from="28to22" to="22to16"/>
+    <connection from="22to16" to="16to10"/>
+    <connection from="16to10" to="10to4"/>
+
+    <connection from="5to11" to="11to17"/>
+    <connection from="11to17" to="17to23"/>
+    <connection from="17to23" to="23to29"/>
+    <connection from="23to29" to="29to35"/>
+
+    <connection from="6to12" to="12to18"/>
+    <connection from="12to18" to="18to24"/>
+    <connection from="18to24" to="24to30"/>
+    <connection from="24to30" to="30to36"/>
+    
+    <connection from="2to3" to="3to9"/>
+    <connection from="4to5" to="5to11"/>
+    <connection from="5to6" to="6to12"/>
+    
+    <connection from="12to11" to="11to17"/>
+    <connection from="11to10" to="10to4"/>
+    <connection from="10to9" to="9to15"/>
+    <connection from="9to8" to="8to2"/>
+    <connection from="8to7" to="7to1"/>
+    
+    <connection from="13to14" to="14to8"/>
+    <connection from="14to15" to="15to21"/>
+    <connection from="15to16" to="16to10"/>
+    <connection from="16to17" to="17to23"/>
+    <connection from="17to18" to="18to24"/>    
+
+    <connection from="24to23" to="23to29"/>
+    <connection from="23to22" to="22to16"/>
+    <connection from="22to21" to="21to27"/>
+    <connection from="25to19" to="19to13"/>
+    <connection from="19to13" to="13to7"/>
+    <connection from="13to7" to="7to1"/>
+
+    <connection from="32to26" to="26to20"/>
+    <connection from="26to20" to="20to14"/>
+    <connection from="20to14" to="14to8"/>
+    <connection from="14to8" to="8to2"/>
+
+    <connection from="3to9" to="9to15"/>
+    <connection from="9to15" to="15to21"/>
+    <connection from="15to21" to="21to27"/>
+    <connection from="21to27" to="27to33"/>
+
+    <connection from="34to28" to="28to22"/>
+    <connection from="28to22" to="22to16"/>
+    <connection from="22to16" to="16to10"/>
+    <connection from="16to10" to="10to4"/>
+
+    <connection from="5to11" to="11to17"/>
+    <connection from="11to17" to="17to23"/>
+    <connection from="17to23" to="23to29"/>
+    <connection from="23to29" to="29to35"/>
+
+    <connection from="6to12" to="12to18"/>
+    <connection from="12to18" to="18to24"/>
+    <connection from="18to24" to="24to30"/>
+    <connection from="24to30" to="30to36"/>
+    <connection from="21to20" to="20to14"/>
+    <connection from="20to19" to="19to13"/> 
+    
+    <connection from="25to26" to="26to20"/>
+    <connection from="26to27" to="27to33"/>
+    <connection from="27to28" to="28to22"/>
+    <connection from="28to29" to="29to35"/>
+    <connection from="29to30" to="30to36"/>       
+
+    <connection from="35to34" to="34to28"/>
+    <connection from="33to32" to="32to26"/>
+    <connection from="32to31" to="31to25"/> 
+    
+    <connection from="31to25" to="25to26"/>
+    <connection from="19to13" to="13to14"/>
+    <connection from="7to1" to="1to2"/>
+
+    <connection from="32to26" to="26to27"/>
+    <connection from="26to20" to="20to19"/>
+    <connection from="20to14" to="14to15"/>
+    <connection from="14to8" to="8to7"/>
+    <connection from="8to2" to="2to3"/>
+
+    <connection from="3to9" to="9to8"/>
+    <connection from="9to15" to="15to16"/>
+    <connection from="15to21" to="21to20"/>
+    <connection from="21to27" to="27to28"/>
+    <connection from="27to33" to="33to32"/>
+
+    <connection from="34to28" to="28to29"/>
+    <connection from="28to22" to="22to21"/>
+    <connection from="22to16" to="16to17"/>
+    <connection from="16to10" to="10to9"/>
+    <connection from="10to4" to="4to5"/>
+
+    <connection from="5to11" to="11to10"/>
+    <connection from="11to17" to="17to18"/>
+    <connection from="17to23" to="23to22"/>
+    <connection from="23to29" to="29to30"/>
+    <connection from="29to35" to="35to34"/>
+
+    <connection from="6to12" to="12to11"/>
+    <connection from="18to24" to="24to23"/>
+    <connection from="30to36" to="36to35"/>
+    
+</connections>

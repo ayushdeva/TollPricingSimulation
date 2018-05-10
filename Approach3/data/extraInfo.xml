@@ -1,0 +1,4 @@
+<additional>
+	<e1Detector id="0" lane="1to2_0" pos="150" freq="30" file="cross.out" friendlyPos="x"/>
+	<edgeData id="1to2" file="edgeInfo"/>
+</additional>

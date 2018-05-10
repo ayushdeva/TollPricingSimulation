@@ -1,0 +1,192 @@
+The purpose of this simulation is two compare two proposed approaches for dynamic toll pricing which are :- 
+
+1. An agent-based approach for road pricing:
+system-level performance and implications
+for drivers
+
+- Anderson Rocha Tavares * and Ana LC Bazzan
+
+
+2. Real-time Adaptive Tolling Scheme for Optimized Social
+Welfare in Traffic Networks
+
+- Guni Sharon, Josiah P. Hanna, Tarun Rambha etc. 
+
+
+1> They model traffic as a multiagent system in which link manager agents employ a reinforcement learning scheme to determine road pricing policies in a road network. Drivers who traverse the road network are cost-minimizer agents with local information and different preferences regarding travel time and credits expenditure.
+They assumed :-f
+a. That drivers have information of only the roads they traversed. 
+b. The link managers update the cost using reinforcement learning. Say the cost is something between [0,10,20.....100]. Each cost is assosciated with a Q-value. The link managers try to learn upon these values. 
+
+2> "It has been known for nearly a century that drivers seeking to
+minimize their private travel times need not minimize the total level
+of congestion. In other words, self-interested drivers may reach a
+user equilibrium that is not optimal from a system perspective. On
+the other hand, disincentivizing vehicles to traverse certain links
+(using tolls for instance) can lead to system optimum". 
+
+Specifically, this paper defines the micro-toll traffic optimization (MTTO) problem where, given current, observable traffic conditions (traffic volume, travel speed, travel time etc.), the goal is to set a dynamic toll value to each link such that the user equilibrium aligns with the system optimum.
+
+They assume the following :-
+1. Adapt to traffic conditions in real-time. Traffic demands and
+road capacities are dynamically changing throughout the day.
+The system should adapt and react to such changes.
+
+2. Robust to heterogeneous VOT. The system should not as-
+sume that all agents have uniform VOT. VOT is Value of Time basically a measure between the value of time vs the cost(here, toll).
+
+3. The location (traveled links) of each agent is visible to the
+toll manager, for billing purposes.
+
+4. Toll values are visible to the agents.
+
+
+For the purpose of comparison, here's what we have done :
+
+BASIC VERSION ( V1.0 )
+
+1. NETWORK 
+
+Its a 6X6 grid. with vertices number as 
+
+----1-2-3--4--5--6--->y
+--------------------------
+1|	1 7 13 19 25 31 
+2|	2 8 14 20 26 32 
+3|	3 9 15 21 27 33 
+4|	4 10 16 22 28 34 
+5|	5 11 17 23 29 35 
+6|	6 12 18 24 30 36 
+|
+x
+
+#(Invalid)The distance of each link is 300m and the time taken to traverse is 20s. We can have few variations in this by indtroducing som high speed links and so on.
+
+As per paper 1, the load is kept to be 900 vehicles at any instance. Now, possible variance in load generation :-
+
+1. Completely random ( as in this version ) : Avg distance between any two randomly generated points is  = 5.216, i.e., 5.216 edges.
+
+#(Invalid) So, that means an average time of 5.216*20=104.32s to complete all 900 trips. every second almost 900/104.32 trips get over which is equal to 8.63 . So I generate 8 vehicles with prob. 0.37 and 9 vehicles with prob. 0.63 every second.  
+
+2. Something like a Gaussian Distribution. More dense in the centre. This relates to the genreal downtown concept where more crowd in the centre of the town.
+
+#(Invalid) Now 1 iteration is of 1hr. (3600 s) ~ 900+(8.63)*3600 = 31968 trips ! where each driver in the generated load travels according to his minimum path and the link managers update thier cost accordingly. We will have 400 iterations in our model. 
+
+
+In Paper 1, the total no. of trips completed is around 6000 in one hour. so, if it took x seconds to complete 900 trips, total no. of trips completed in one hour will be, 3600x900/x = 6000 
+Hence, x = 540s. 
+
+So, 900/540 = 10/6 = 1.667. so i generate 1 vehicle with pr. 1/3 and 2 vehicles with pr. 2/3 at every instance.
+
+Now, since average distance between two points is 5.216, the avg time/link = 540/5.216 = 103.5s ~ 100s. 
+
+Now, ideally, the average load per link is 6000*5.216 / 60 = 521. This means at an instance, we have 521*100/3600 vehicles on the road which is about 15 vehicles.
+Now, given all one way links, total length - 300, length between two vehicles is 5m , so total vehicles at free flow could be 300/5 = 60. Note to authors - why would the time taken be 100s with only 15 vehicles. Also, if they could share the time vs no. of vehicles in a link with us.
+
+So two things time can be seen as some time + constant (due to signal or whatever)
+
+Therefore, when 
+
+1. load = 0, time = 20, cost = 10
+2. load = 500, time = 100, cost = 40 
+2. load = 1000, time = 230, cost = 60 
+2. load = 1500, time = 480, cost = 100 
+2. load = 2000, time = 800, cost = 200  
+3. load = 6000, time = 7230, cost = 1000
+
+As a driver the cost of each link is something like
+
+vot + voc where (vot)&c are value of time and the value of cost(here,toll) respectively. p can take three values - 0(care only about monetary cost),0.5(care about both equally),1(care only about time).We can have other distributions as well, but we will restrit to these. 
+Now VOT & VOC distribution has to be an input to the system. 
+
+Some Realistic possible values :-
+Toll prices are in the range 0-100. Vot should also be in this range 0-100. So, again possible distributions for both are :-
+
+1. Always 50.
+2. Always 0.
+3. Always 100.
+4. Uniform Distribution over 0-100
+5. Gaussian Distribution over 0-100.
+
+Or we can also have smarter ways for distributions that incorporate both as in [1]. This would reduce the number of combinations.
+
+Something like p(vot)+(1-p)c. 
+
+c = Toll Price ( fixed )
+VOT 
+1. t/maxt * 100 = 2t/3 ( maxt is calculated below in the update rule section).
+2. Have a CDF for a normal distribution . something like a sigmoid function. The value of time increases first and then reduces.
+= 100/(1+exp(-0.07*(x-40)))
+
+Now , we can just have different distributions for p.Some examples are :-
+
+1. p=0 (care only about cost)
+2. p=1 (care only about time)
+3. p=0.5(care about both equally)
+4. p=0 with pr.1/2 and 1 with pr. 1/2 (half population of type 1 and the other half of type 2)
+5. p = [0,1] uniform distribution - will stick to this as of now.
+6. p = gaussian distribution with mean as 1/2 and deviation as 0.15.
+
+
+Now, for this model we will assume that each driver knows the real-time values of tolls and time taken for each link in the grid and he can compute the path of his trip on that information. Based on the trips in that iteration, the link managers update their cost of link and the new travel time is updated according to the number of vehicles that traversed through that link in that iteration. 
+
+LOAD
+
+total vehicles = 31968
+avg dist = 5.216 links
+total links covered = 31968*5.216 = 166745
+avg/ per link = 166745/60 = 2779
+max/link = if all vehicles traverse = 31968
+
+UPDATE RULE :
+
+Here's where the models will be compared. 
+
+1. For time it is 20+f(max(0,nVeh-threshold)) where meanVal as calculated before is approximately 2779. threshold is some value uptil which the time taken is still 20 and f is some function on the additional load. for now we take f to be a sigmoid function. let threshold be a some value less than the meanVal say, 1800. now uptil 3600 it increases to 20s exponentially. then 40-60 form 3600 to 4500. then 60-150 from 4500 - 31968. therefore maxt = 150.
+
+
+2. For toll :-
+
+a. 1> Reinforcement learning. for each link manager, the available costs are [0,10,20....100]
+Each cost has a Q-value. Uses epsilon-greedy to explore and exploit. epsilon decays exponentially as :-
+
+e <- e.lambda. where lambda is nth root of ef/e0 where n is the total no. of iterations and ef and e0 are the final and intial value of e that we want. 
+let e0=1,ef=0.1
+
+Now, the Q-value for each link is the revenue generated by the link manager. It is updated as 
+
+Q <- (1-a)Q+a.R where R is the current reward. To initialize, lets take a good guess like (2000+(100-price)*10 )*price , where the former is just a rough approx as to how many would actually traverse the link.
+
+
+b. 2> delta = beta*(t-freeTime). freeTime/freeFlow Time = 20s. and tmax = 150. 
+		toll <- R(delta)+(1-R)toll  
+		now when tmax = 150 , delta = beta*130, so for delta to vary between 10-100 , 
+		beta = (130/90)
+
+		beta can take a maxVal of 100/(150-20) = 100/130 = 0.77
+
+
+Other Things I can try :
+
+1. Since as in 1>, try to model it as a bandit problem. Use UCB algorithm or the Thompson sampling.
+
+
+CHALLENGES :
+
+The congestion of one link also affects the congestion of the links following it which is not exactly captured. but the fact that choosing that link means who have to choose the adjacent link next, meaning increasing their congestion as well automatically, so not big of a problem.
+
+
+
+For tomorrow : 
+
+Need to work a little bit more on how can we improve the update time waala part.
+
+
+
+NEW THINGS :
+
+1. Keeping avg tim per link around 100s.
+2. Avg. Distance is 2.66
+3. Therefore 1 trip is 266 seconds
+5. Let no. of active vehicles at any time be x. 
+4. Now, x trips in 255 seconds. Therefore, in 1 second, around x/255 trips are completed. 

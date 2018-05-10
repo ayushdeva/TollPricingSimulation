@@ -1,0 +1,4 @@
+1. When we run the simulation with new.py, the values of nVeh for each link are kind of oscillating.
+One iteration it has a lot of vehicles, the next iteration it reduces. and this goes on cyclically. This must be due to sharp change in our parameter values wrt to the error percieved.
+
+2. In v2 i changed p from 0.5 to random.uniform(0,1). Variance reduced a little bit
